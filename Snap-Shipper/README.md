@@ -1,5 +1,10 @@
 # Snap-Shipper
-Ship those snapshots
+
+this is a simple script to help you Ship those snapshots
+
+Running this add on will upload any file in the supplied path that is not already present in the destination.
+
+This was made because i wanted a solution for automatically uploading my snapshots that didn't involve google drive or dropbox and as such this works right now, but if there is interest i would gladly try to make this more suitable for a wider audience.
 
 ## License
 

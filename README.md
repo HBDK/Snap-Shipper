@@ -1,5 +1,12 @@
 # Snap-Shipper
-Ship those snapshots
+
+This is a simple script to help you Ship those snapshots
+
+This was made because i wanted a solution for automatically uploading my snapshots that didn't involve google drive or dropbox and as such this works right now, but if there is interest i would gladly try to make this more suitable for a wider audience.
+
+## future plans
+
+Add more sink types and add error handling and notifications
 
 ## License
 
