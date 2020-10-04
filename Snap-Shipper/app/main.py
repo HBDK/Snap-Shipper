@@ -10,7 +10,7 @@ logging.info("Starting Snap-Shipper")
 options = OptionsBuilder().Options
 
 if options.DryRun:
-    logging.warn("Dry run so we son't ship anything")
+    logging.warning("Dry run so we son't ship anything")
 
 clients =  SinkFactory(options.Sinks).Sinks
 
