@@ -1,0 +1,25 @@
+{
+  "name": "Snap-Shipper",
+  "version": "0.01",
+  "slug": "snapshipper",
+  "description": "Ship those snapshots",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "once",
+  "boot": "manual",
+  "map": ["backup:rw"],
+  "options": {
+    "DryRun": true,
+    "Folder": "/backup",
+    "Sinks":[
+        {
+            "Name": "Your Webdav",
+            "WebDavClient":{
+                "webdav_hostname": "https://Your-domæne/remote.php/dav/files/some-user/backups",
+                "webdav_login":    "some-user",
+                "webdav_password": "the password"
+            }
+        }
+    ]
+  },
+  "schema": false
+}

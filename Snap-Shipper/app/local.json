@@ -1,0 +1,14 @@
+{
+    "DryRun": true,
+    "Folder": "backups",
+    "Sinks":[
+        {
+            "Name": "next cloud",
+            "WebDavClient":{
+                "webdav_hostname": "",
+                "webdav_login":    "",
+                "webdav_password": ""
+            }
+        }
+    ]
+}
