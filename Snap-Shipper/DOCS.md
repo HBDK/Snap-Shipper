@@ -4,6 +4,8 @@ Fill out the config and press start
 
 the add on stops when it is done uploading, so to make sure you backups are shipped you must run this manually when a new snapshot is done or set up an automation to trigger this. 
 
+I recommend setting DryRun to True until you are sure you configuration is correct
+
 ## Options
 
 this project currently doesn't verify the schema of the config so please start the addon after config changes to make sure that they work.
