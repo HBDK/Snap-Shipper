@@ -5,7 +5,7 @@
   "slug": "snapshipper",
   "description": "Ship those snapshots",
   "url": "https://github.com/HBDK/Snap-Shipper",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "arch": ["armv7", "aarch64", "amd64", "i386"],
   "startup": "once",
   "boot": "manual",
   "map": ["backup:rw"],
