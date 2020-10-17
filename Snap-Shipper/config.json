@@ -1,6 +1,7 @@
 {
   "name": "Snap-Shipper",
-  "version": "0.01",
+  "version": "0.0.1rc0",
+  "image": "hbdk/snap-shipper",
   "slug": "snapshipper",
   "description": "Ship those snapshots",
   "url": "https://github.com/HBDK/Snap-Shipper",
