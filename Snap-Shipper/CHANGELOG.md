@@ -14,4 +14,4 @@ The addons config will be lost when uninstalling so make sure to take a copy bef
 
 ## 0.0.1rc3
 
-added 3s sinks and a done log messeage.
+added 3s sinks (thanks [Robin](https://github.com/Excape)) and a done log messeage.
