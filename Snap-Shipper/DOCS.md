@@ -2,7 +2,7 @@
 
 Fill out the config and press start
 
-the add on stops when it is done uploading, so to make sure you backups are shipped you must run this manually when a new snapshot is done or set up an automation to trigger this. 
+the add on stops when it is done uploading, so to make sure you backups are shipped you must run this manually when a new snapshot is done or set up an automation to trigger this.
 
 I recommend setting DryRun to True until you are sure you configuration is correct
 
@@ -16,29 +16,43 @@ Folder: /backup
 Sinks:
   - Name: Your Webdav
     WebDavClient:
-      webdav_hostname: 'https://Your-domæne/remote.php/dav/files/some-user/backups'
+      webdav_hostname: "https://Your-domæne/remote.php/dav/files/some-user/backups"
       webdav_login: some-user
       webdav_password: the password
+
+  - Name: AWS S3
+    S3Client:
+      endpoint_url: "https://s3.eu-west-1.amazonaws.com"
+      aws_access_key: <access key>
+      aws_secret_access_key: <secret access key>
+      bucket: <bucket name>
 ```
 
 - **Folder**:  
-the folder to process, this should always be /backup
+  the folder to process, this should always be /backup
 
 - **DryRun**:  
-if true no files will be uploaded, set to false when you know that everything is configured right
+  if true no files will be uploaded, set to false when you know that everything is configured right
 
 - **Sinks**:  
-A list of sinks, every file will be uploadet to every sink that doesn't allready contain a file with that name. see section sinks for more info
+  A list of sinks, every file will be uploadet to every sink that doesn't allready contain a file with that name. see section sinks for more info
 
 ### Sinks
 
 each sink must have a name and a configuration.
 
-the only sink type supported now i Webdav.
+the only sink type supported now is Webdav.
 
 #### WebDavClient
 
-The entire contents of this obejct is passed when creating the sink so for further options please refer to the documentation for [webdavclient3](https://pypi.org/project/webdavclient3/)
+The entire contents of this object is passed when creating the sink so for further options please refer to the documentation for [webdavclient3](https://pypi.org/project/webdavclient3/)
+
+#### S3Client
+
+The S3 client can upload snapshots to any S3 compatible storage (e.g. AWS S3, Backblaze).
+
+- **endpoint_url**:
+  The URL of the storage provider. For AWS S3, this follows the schema `https://s3.<region-code>.amazonaws.com`, see [AWS docs](https://docs.aws.amazon.com/general/latest/gr/rande.html)
 
 ## License
 
@@ -63,7 +77,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
