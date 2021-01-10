@@ -41,8 +41,6 @@ Sinks:
 
 each sink must have a name and a configuration.
 
-the only sink type supported now is Webdav.
-
 #### WebDavClient
 
 The entire contents of this object is passed when creating the sink so for further options please refer to the documentation for [webdavclient3](https://pypi.org/project/webdavclient3/)
