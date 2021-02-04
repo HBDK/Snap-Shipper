@@ -1,10 +1,58 @@
 # Snap-Shipper
 
-This is a simple script to help you Ship those snapshots
+An alternative way to upload snapshots that does not involve Google Drive or Dropbox.
 
-This was made because i wanted a solution for automatically uploading my snapshots that didn't involve google drive or dropbox and as such this works right now, but if there is interest i would gladly try to make this more suitable for a wider audience.
+**Supports**
+- WebDAV (i.e. Nextcloud)
+- Amazon S3 Bucket
 
-## future plans
+## Configuration example
+
+```
+DryRun: true
+Folder: /backup
+Sinks:
+  - Name: Your Webdav
+    WebDavClient:
+      webdav_hostname: 'https://Your-domæne/remote.php/dav/files/some-user/backups'
+      webdav_login: some-user
+      webdav_password: the password
+  - Name: AWS S3
+    S3Client:
+      endpoint_url: 'https://s3.eu-west-1.amazonaws.com'
+      aws_access_key: <access key>
+      aws_secret_access_key: <secret access key>
+      bucket: <bucket name>
+```
+
+## Running at an interval
+
+You can run this add-on at an interval using Home Assistant automations. Here's an example:
+
+**Backup snapshots every day at midnight**
+```
+alias: Backup snapshots
+description: ''
+trigger:
+  - platform: time
+    at: '00:00:00'
+condition: []
+action:
+  - service: hassio.addon_start
+    data:
+      addon: <ADDON_NAME> # to find name, view README.md
+mode: single
+```
+
+### Finding the `addon` value for an automation
+
+When editing the add-on's configuration or viewing its logs, observe the URL slug and you can find the add-on name:
+
+```
+https://your.hassio.domain:8123/hassio/addon/<ADDON_NAME>/logs
+```
+
+## Future plans
 
 Add more sink types and add error handling and notifications
 
