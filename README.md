@@ -38,6 +38,8 @@ trigger:
     at: '00:00:00'
 condition: []
 action:
+  - service: hassio.snapshot_full
+    data: {}
   - service: hassio.addon_start
     data:
       addon: <ADDON_NAME> # to find name, view README.md
