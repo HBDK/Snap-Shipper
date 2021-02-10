@@ -52,6 +52,35 @@ The S3 client can upload snapshots to any S3 compatible storage (e.g. AWS S3, Ba
 - **endpoint_url**:
   The URL of the storage provider. For AWS S3, this follows the schema `https://s3.<region-code>.amazonaws.com`, see [AWS docs](https://docs.aws.amazon.com/general/latest/gr/rande.html)
 
+## Running at an interval
+
+You can run this add-on at an interval using Home Assistant automations. Here's an example:
+
+**Backup snapshots every day at midnight**
+```
+alias: Backup snapshots
+description: ''
+trigger:
+  - platform: time
+    at: '00:00:00'
+condition: []
+action:
+  - service: hassio.snapshot_full
+    data: {}
+  - service: hassio.addon_start
+    data:
+      addon: <ADDON_NAME> # to find name, view README.md
+mode: single
+```
+
+### Finding the `addon` value for an automation
+
+When editing the add-on's configuration or viewing its logs, observe the URL slug and you can find the add-on name:
+
+```
+https://your.hassio.domain:8123/hassio/addon/<ADDON_NAME>/logs
+```
+
 ## License
 
 MIT License
